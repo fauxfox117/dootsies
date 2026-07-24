@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dootsie's
+
+A modern restaurant website built with Next.js, featuring smooth animations, a custom preloader, and interactive navigation.
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Animations:** GSAP + ScrollTrigger
+- **Smooth Scroll:** Lenis
+- **Styling:** CSS Modules
 
 ## Getting Started
 
@@ -34,3 +43,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+src/
+├── app/              # Pages (Home, About, Menu, Reservation)
+├── components/       # Reusable UI components
+│   ├── Nav/          # Navigation with animated overlay menu
+│   ├── Preloader/    # Entrance preloader animation
+│   ├── Footer/       # Footer with postcard hover effect
+│   └── ...
+├── hooks/            # Custom React hooks
+public/               # Static assets (images, logo)
