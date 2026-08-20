@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <>
-      <Preloader onEnter={handlePreloaderEnter} />
+      {/* <Preloader onEnter={handlePreloaderEnter} />
 
       <section className="hero">
         <div className="hero-img">
@@ -143,7 +143,15 @@ export default function Home() {
       <DiningMenu />
       <Testimonials />
       <CTA />
-      <ImageBanner />
+      <ImageBanner /> */}
+      {/* //Landing Page Placeholder for now, will be replaced with the actual
+      landing page content later */}
+      <main className="landing-page" aria-label="Dootsie's landing page">
+        <div className="landing-logo-wrap">
+          <img src="/Dootsies.PNG" alt="Dootsie's" className="landing-logo" />
+          <h3 className="landing-title">Coming Soon</h3>
+        </div>
+      </main>
     </>
   );
 }

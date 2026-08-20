@@ -15,6 +15,42 @@
   z-index: 0; /* ← and here */
 }
 
+.landing-page {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: var(--base-600);
+}
+
+.landing-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(86vw, 1400px);
+  max-width: calc(100vw - 2rem);
+  padding: 2rem;
+}
+
+.landing-title {
+  margin-top: -4rem;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  color: var(--base-200);
+}
+
+.landing-logo {
+  display: block;
+  width: min(100%, 1200px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -171,5 +207,27 @@
 
   .about .about-imgs #about-img-6 {
     width: 20%;
+  }
+
+  .landing-logo-wrap {
+    width: min(78vw, 500px);
+    max-width: calc(100vw - 2rem);
+    padding: 1rem;
+  }
+
+  .landing-logo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .landing-title {
+    margin-top: -2rem;
+  }
+
+  .landing-title {
+    margin-top: -1rem;
+    font-size: 15px;
   }
 }

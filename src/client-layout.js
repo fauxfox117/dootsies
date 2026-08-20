@@ -46,6 +46,7 @@ export default function ClientLayout({ children }) {
   const pageWrapperRef = useRef(null);
   const isFirstNavigation = useRef(true);
   const pathname = usePathname();
+  const isLandingPage = pathname === "/";
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -82,11 +83,11 @@ export default function ClientLayout({ children }) {
   return (
     <ViewTransitions>
       <ReactLenis root options={lenisOptions}>
-        <Nav pageRef={pageWrapperRef} />
+        {!isLandingPage && <Nav pageRef={pageWrapperRef} />}
         <div className="page" ref={pageRef}>
           <div className="page-wrapper" ref={pageWrapperRef}>
             {children}
-            <Footer />
+            {!isLandingPage && <Footer />}
           </div>
         </div>
       </ReactLenis>
