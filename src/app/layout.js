@@ -17,7 +17,7 @@ const dmMono = DM_Mono({
 
 export const metadata = {
   title: "Dootsie's",
-  description: "Dootsie's",
+  description: "Coming soon",
   icons: {
     icon: "/favicon.png",
   },
