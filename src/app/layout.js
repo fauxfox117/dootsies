@@ -1,4 +1,5 @@
 import { Host_Grotesk, DM_Mono } from "next/font/google";
+import Script from "next/script";
 
 import ClientLayout from "@/client-layout";
 
@@ -27,6 +28,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${hostGrotesk.variable} ${dmMono.variable}`}>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MZGEKKV2ZJ"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MZGEKKV2ZJ');
+          `}
+        </Script>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
