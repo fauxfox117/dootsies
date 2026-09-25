@@ -20,6 +20,7 @@ const SOCIAL_LINKS = [
   { label: "Instagram", href: "#" },
   { label: "Google", href: "#" },
   { label: "OpenTable", href: "#" },
+  { label: "Gift Cards", href: "#" },
 ];
 
 const LINK_TEXT_SELECTORS = [".nav-link a", ".nav-social a"];
@@ -316,7 +317,12 @@ export default function Nav({ pageRef }) {
                       onMouseOver={() => handleLinkHover(link.img)}
                       onClick={(e) => {
                         e.preventDefault();
-                        if (link.label === "Carte" || link.label === "Home")
+                        if (
+                          link.label === "Carte" ||
+                          link.label === "Home" ||
+                          link.label === "Essence" ||
+                          link.label === "Book"
+                        )
                           navigateWithTransition(link.href);
                       }}
                     >

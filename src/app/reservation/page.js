@@ -48,8 +48,8 @@ const INFO_CARDS = [
       "Contact our team for questions or arrangements. We respond with care, clarity, and attention to every visit.",
     items: [
       "+39 055 398 2417",
-      "hello@salleblanche.com",
-      "press@salleblanche.com",
+      "hello@dootsies.com",
+      "press@dootsies.com",
       "Guest Services",
     ],
   },
@@ -229,7 +229,7 @@ export default function Reservation() {
         </div>
       </section>
 
-      <section className="reservation-info" ref={infoSectionRef}>
+      {/* <section className="reservation-info" ref={infoSectionRef}>
         <div className="container">
           {INFO_CARDS.map(({ icon: Icon, title, description, items }) => (
             <div className="info-panel" key={title}>
@@ -251,7 +251,7 @@ export default function Reservation() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <CTA />
     </>

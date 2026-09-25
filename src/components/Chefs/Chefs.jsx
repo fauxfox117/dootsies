@@ -8,14 +8,14 @@ import "./Chefs.css";
 const MOBILE_BREAKPOINT = 1000;
 
 const CHEFS = [
-  { name: "Laurent", image: "/chefs/avatar1.jpg" },
-  { name: "Camille", image: "/chefs/avatar2.jpg" },
-  { name: "Nicolas", image: "/chefs/avatar3.jpg" },
-  { name: "Isabelle", image: "/chefs/avatar4.jpg" },
-  { name: "Matthieu", image: "/chefs/avatar5.jpg" },
-  { name: "Colette", image: "/chefs/avatar6.jpg" },
-  { name: "Olivier", image: "/chefs/avatar7.jpg" },
-  { name: "Juliette", image: "/chefs/avatar8.jpg" },
+  { name: "Joe", image: "/chefs/joe2.jpg" },
+  { name: "Colin", image: "/chefs/colin.jpg" },
+  { name: "Rob", image: "/chefs/rob.jpg" },
+  { name: "Jeff", image: "/chefs/jeff.jpg" },
+  { name: "Tony", image: "/chefs/avatar5.jpg" },
+  // { name: "Colette", image: "/chefs/avatar6.jpg" },
+  // { name: "Olivier", image: "/chefs/avatar7.jpg" },
+  // { name: "Juliette", image: "/chefs/avatar8.jpg" },
 ];
 
 const SplitChars = ({ text, headingRef }) => (

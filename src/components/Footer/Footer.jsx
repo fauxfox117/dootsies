@@ -148,7 +148,7 @@ const Footer = () => {
             trigger=".footer-heading"
             animateOnScroll
           >
-            <p className="sm">&copy;2025 All Rights Reserved</p>
+            <p className="sm">&copy;2026 All Rights Reserved</p>
           </Copy>
         </div>
         <div className="footer-bar-right">
