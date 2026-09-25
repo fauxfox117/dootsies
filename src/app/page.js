@@ -140,7 +140,7 @@ export default function Home() {
         </div>
       </section>
 
-      <DiningMenu />
+      {/* <DiningMenu /> */}
       <Testimonials />
       <CTA />
       <ImageBanner />
