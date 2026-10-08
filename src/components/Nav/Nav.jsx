@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
+import Image from "next/image";
 import gsap from "gsap";
 
 import { useViewTransition } from "@/hooks/useViewTransition";
@@ -19,7 +20,7 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "#" },
   { label: "Google", href: "#" },
-  { label: "OpenTable", href: "#" },
+  { label: "Resy", href: "#" },
   { label: "Gift Cards", href: "#" },
 ];
 
@@ -288,7 +289,13 @@ export default function Nav({ pageRef }) {
               navigateWithTransition("/");
             }}
           >
-            <img src="/Dootsies.PNG" alt="Dootsie's" />
+            <Image
+              src="/Dootsies.PNG"
+              alt="Dootsie's"
+              width={2733}
+              height={1108}
+              priority
+            />
           </a>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -128,7 +129,13 @@ export default function About() {
           </div>
 
           <div className="hero-image">
-            <img src="/about/about-hero.jpg" alt="About Dootsie's" />
+            <Image
+              src="/about/about-hero.jpg"
+              alt="About Dootsie's"
+              fill
+              sizes="(max-width: 600px) 100vw, 600px"
+              priority
+            />
           </div>
         </div>
       </section>

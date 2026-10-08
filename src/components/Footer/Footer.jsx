@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -135,7 +136,12 @@ const Footer = () => {
       <div className="footer-postcards">
         {POSTCARDS.map((card, index) => (
           <div className="footer-postcard" key={index}>
-            <img src={card.image} alt="Dootsie's" />
+            <Image
+              src={card.image}
+              alt="Dootsie's"
+              fill
+              sizes="(max-width: 1000px) 360px, 40vw"
+            />
           </div>
         ))}
       </div>

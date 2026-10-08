@@ -13,7 +13,7 @@ import "./menu.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const CATEGORY_TAGLINES = {
-  Breakfast: "A gentle start, crafted with care",
+  // Breakfast: "A gentle start, crafted with care",
   Foodsharing: "Plates meant to be passed and savoured together",
   Pizza: "Wood-fired, hand-stretched, classically inspired",
   Drinks: "From bean to glass, every sip considered",

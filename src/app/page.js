@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -70,14 +71,17 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-img">
-          <img src="/home/hero.jpg" alt="" />
+          <Image src="/home/hero.jpg" alt="" fill sizes="100vw" priority />
         </div>
 
         <div className="container">
-          <img
+          <Image
             src="/Dootsies.PNG"
             alt="Dootsie's"
             className="hero-logo"
+            width={2733}
+            height={1108}
+            priority
             style={{
               opacity: 0,
               animation: `heroLogoFadeIn 0.9s ease forwards`,
@@ -133,7 +137,12 @@ export default function Home() {
                 className="about-img"
                 id={`about-img-${index + 1}`}
               >
-                <img src={`/home/about-${index + 1}.jpg`} alt="" />
+                <Image
+                  src={`/home/about-${index + 1}.jpg`}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1000px) 25vw, 20vw"
+                />
               </div>
             ))}
           </div>
