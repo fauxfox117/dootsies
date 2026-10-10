@@ -19,7 +19,8 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "#" },
   { label: "Google", href: "#" },
-  { label: "OpenTable", href: "#" },
+  { label: "Resy", href: "#" },
+  { label: "Gift Cards", href: "#" },
 ];
 
 const LINK_TEXT_SELECTORS = [".nav-link a", ".nav-social a"];

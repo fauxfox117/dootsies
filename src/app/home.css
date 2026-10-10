@@ -179,6 +179,10 @@
   aspect-ratio: 5/7;
 }
 
+.careers-button {
+  margin-top: 4rem;
+}
+
 @media (max-width: 1000px) {
   .about .about-header .container h3 {
     width: 100%;

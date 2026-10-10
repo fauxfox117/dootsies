@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Modal from "@/components/Modal/Modal";
+import Button from "@/components/Button/Button";
+import { useHiringAnnouncement } from "@/context/HiringAnnouncementContext";
+
 import Preloader, { isInitialLoad } from "@/components/Preloader/Preloader";
 import Copy from "@/components/Copy/Copy";
 import DiningMenu from "@/components/DiningMenu/DiningMenu";
@@ -18,8 +22,10 @@ gsap.registerPlugin(ScrollTrigger);
 const ABOUT_IMAGE_COUNT = 6;
 
 export default function Home() {
+  const buttonText = "Careers";
   const aboutSectionRef = useRef(null);
   const isInitialPageLoad = useRef(isInitialLoad).current;
+  const openHiringAnnouncement = useHiringAnnouncement();
   const [preloaderDelay, setPreloaderDelay] = useState(
     isInitialPageLoad ? 9999 : 0,
   );
@@ -150,6 +156,15 @@ export default function Home() {
         <div className="landing-logo-wrap">
           <img src="/Dootsies.PNG" alt="Dootsie's" className="landing-logo" />
           <h3 className="landing-title">Coming Soon</h3>
+          <Button
+            className="careers-button"
+            onClick={(e) => {
+              e.preventDefault();
+              openHiringAnnouncement();
+            }}
+          >
+            {buttonText}
+          </Button>
         </div>
       </main>
     </>
