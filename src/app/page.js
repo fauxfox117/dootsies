@@ -23,6 +23,7 @@ const ABOUT_IMAGE_COUNT = 6;
 
 export default function Home() {
   const buttonText = "Careers";
+  const registerText = "Register here";
   const aboutSectionRef = useRef(null);
   const isInitialPageLoad = useRef(isInitialLoad).current;
   const openHiringAnnouncement = useHiringAnnouncement();
@@ -164,6 +165,13 @@ export default function Home() {
             }}
           >
             {buttonText}
+          </Button>
+          <p className="register-info">Register for open call below</p>
+          <Button
+            href="https://calendly.com/hello-scoundrelgvl"
+            className="register-button"
+          >
+            {registerText}
           </Button>
         </div>
       </main>

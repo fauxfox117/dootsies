@@ -183,6 +183,14 @@
   margin-top: 4rem;
 }
 
+.register-info {
+  margin-top: 4rem;
+  font-size: 24px;
+}
+.register-button {
+  margin-top: 1rem;
+}
+
 @media (max-width: 1000px) {
   .about .about-header .container h3 {
     width: 100%;
