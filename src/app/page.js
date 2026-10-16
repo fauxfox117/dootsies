@@ -157,7 +157,7 @@ export default function Home() {
         <div className="landing-logo-wrap">
           <img src="/Dootsies.PNG" alt="Dootsie's" className="landing-logo" />
           <h3 className="landing-title">Coming Soon</h3>
-          <Button
+          {/* <Button
             className="careers-button"
             onClick={(e) => {
               e.preventDefault();
@@ -172,7 +172,7 @@ export default function Home() {
             className="register-button"
           >
             {registerText}
-          </Button>
+          </Button> */}
         </div>
       </main>
     </>
