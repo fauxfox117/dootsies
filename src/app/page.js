@@ -11,6 +11,7 @@ import DiningMenu from "@/components/DiningMenu/DiningMenu";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import CTA from "@/components/CTA/CTA";
 import ImageBanner from "@/components/ImageBanner/ImageBanner";
+import Footer from "@/components/Footer/Footer";
 
 import "./home.css";
 
@@ -108,7 +109,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about" ref={aboutSectionRef}>
+      {/* <section className="about" ref={aboutSectionRef}>
         <div className="about-header">
           <div className="container">
             <Copy type="lines">
@@ -147,12 +148,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <DiningMenu /> */}
-      <Testimonials />
-      <CTA />
-      <ImageBanner />
+      {/* <Testimonials /> */}
+      {/* <CTA /> */}
       {/* //Landing Page Placeholder for now, will be replaced with the actual
       landing page content later */}
       {/* <main className="landing-page" aria-label="Dootsie's landing page">
