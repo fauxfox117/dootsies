@@ -22,7 +22,7 @@
   width: 100%;
   min-height: 100svh;
   overflow: hidden;
-  background-color: var(--base-600);
+  background-color: var(--base-400);
 }
 
 .landing-logo-wrap {
@@ -38,7 +38,7 @@
 .landing-title {
   margin-top: -4rem;
   font-size: clamp(1.5rem, 2vw, 2.5rem);
-  color: var(--base-200);
+  color: var(--base-700);
 }
 
 .landing-logo {
