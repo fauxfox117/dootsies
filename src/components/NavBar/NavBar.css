@@ -1,4 +1,25 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 1rem; */
+}
+
 .nav-logo {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.nav-link {
+  font-family: "Special Elite";
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: var(--base-100);
+  transition:
+    text-decoration 0.3s ease-in-out,
+    color 0.5s ease-in-out;
 }
