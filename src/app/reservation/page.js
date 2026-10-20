@@ -46,12 +46,7 @@ const INFO_CARDS = [
     title: "Contact",
     description:
       "Contact our team for questions or arrangements. We respond with care, clarity, and attention to every visit.",
-    items: [
-      "+39 055 398 2417",
-      "hello@dootsies.com",
-      "press@dootsies.com",
-      "Guest Services",
-    ],
+    items: ["Guest Services"],
   },
 ];
 

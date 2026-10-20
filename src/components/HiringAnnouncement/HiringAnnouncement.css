@@ -1,0 +1,77 @@
+.hiring-announcement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 3rem 2.5rem 2.5rem;
+  text-align: center;
+}
+
+.hiring-announcement p {
+  color: var(--base-400);
+}
+
+.hiring-announcement p.mono {
+  color: var(--base-300);
+}
+
+.hiring-announcement h2 {
+  color: var(--base-500);
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.hiring-announcement-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+}
+
+.hiring-announcement-details,
+.hiring-announcement-location {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hiring-announcement-roles {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.hiring-announcement-roles-col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hiring-announcement-roles-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.hiring-announcement-roles-col li {
+  font-size: 0.9rem;
+  color: var(--base-400);
+}
+
+.hiring-announcement-footer {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .hiring-announcement {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .hiring-announcement-roles {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,15 +1,19 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { ReactLenis } from "lenis/react";
 import { ViewTransitions } from "next-view-transitions";
 
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
+import HiringAnnouncement from "@/components/HiringAnnouncement/HiringAnnouncement";
+import { HiringAnnouncementContext } from "@/context/HiringAnnouncementContext";
 
 const MOBILE_BREAKPOINT = 1000;
 const VIEW_TRANSITION_SETTLE_MS = 1600;
+const HIRING_OPEN_DELAY_MS = 600;
+const HIRING_AUTO_CLOSE_MS = 30000;
 
 const LENIS_EASING = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
@@ -46,8 +50,36 @@ export default function ClientLayout({ children }) {
   const pageWrapperRef = useRef(null);
   const isFirstNavigation = useRef(true);
   const pathname = usePathname();
+  const isLandingPage = pathname === "/";
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isHiringOpen, setIsHiringOpen] = useState(false);
+  const hiringCloseTimerRef = useRef(null);
+
+  /* open the hiring modal and (re)start its auto-close timer */
+  const openHiringAnnouncement = useCallback(() => {
+    if (hiringCloseTimerRef.current) clearTimeout(hiringCloseTimerRef.current);
+    setIsHiringOpen(true);
+    hiringCloseTimerRef.current = setTimeout(
+      () => setIsHiringOpen(false),
+      HIRING_AUTO_CLOSE_MS,
+    );
+  }, []);
+
+  const closeHiringAnnouncement = useCallback(() => {
+    if (hiringCloseTimerRef.current) clearTimeout(hiringCloseTimerRef.current);
+    setIsHiringOpen(false);
+  }, []);
+
+  /* auto-open the hiring modal shortly after mount */
+  useEffect(() => {
+    const openTimer = setTimeout(openHiringAnnouncement, HIRING_OPEN_DELAY_MS);
+    return () => {
+      clearTimeout(openTimer);
+      if (hiringCloseTimerRef.current)
+        clearTimeout(hiringCloseTimerRef.current);
+    };
+  }, [openHiringAnnouncement]);
 
   /* track breakpoint changes */
   useEffect(() => {
@@ -82,13 +114,19 @@ export default function ClientLayout({ children }) {
   return (
     <ViewTransitions>
       <ReactLenis root options={lenisOptions}>
-        <Nav pageRef={pageWrapperRef} />
-        <div className="page" ref={pageRef}>
-          <div className="page-wrapper" ref={pageWrapperRef}>
-            {children}
-            <Footer />
+        <HiringAnnouncementContext.Provider value={openHiringAnnouncement}>
+          <HiringAnnouncement
+            isOpen={isHiringOpen}
+            onClose={closeHiringAnnouncement}
+          />
+          {!isLandingPage && <Nav pageRef={pageWrapperRef} />}
+          <div className="page" ref={pageRef}>
+            <div className="page-wrapper" ref={pageWrapperRef}>
+              {children}
+              {!isLandingPage && <Footer />}
+            </div>
           </div>
-        </div>
+        </HiringAnnouncementContext.Provider>
       </ReactLenis>
     </ViewTransitions>
   );

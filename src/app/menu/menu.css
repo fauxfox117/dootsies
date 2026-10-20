@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100svh;
-  background-color: var(--base-500);
+  background-color: var(--base-400);
 }
 
 .menu-hero .container {
@@ -24,7 +24,7 @@
   position: relative;
   width: 100%;
   padding: 8rem 0;
-  background-color: var(--base-500);
+  background-color: var(--base-400);
 }
 
 .menu-list .container {
@@ -43,7 +43,7 @@
 }
 
 .menu-category-header p {
-  color: var(--base-300);
+  color: var(--base-400);
   font-weight: 400;
 }
 
@@ -81,14 +81,14 @@
 .menu-grid-card-top h6 {
   flex: 1;
   min-width: 0;
-  color: var(--base-100);
+  color: var(--base-500);
 }
 
 .menu-grid-card-top .mono {
   flex-shrink: 0;
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  background-color: var(--base-300);
+  background-color: var(--base-400);
   white-space: nowrap;
   color: var(--base-200);
   font-weight: 500;
@@ -100,7 +100,7 @@
 
 .menu-grid-card-price {
   margin-top: auto;
-  color: var(--base-100) !important;
+  color: var(--base-600) !important;
   font-weight: 500;
 }
 

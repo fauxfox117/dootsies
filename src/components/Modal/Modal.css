@@ -1,0 +1,49 @@
+.modal {
+  visibility: hidden;
+  z-index: 1000;
+  background-color: #0000004d;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
+}
+
+.modal__opened {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s linear 0s;
+}
+
+.modal__container {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 308px;
+  width: 157%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: url("/assets/close.png") 50% no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  padding: 10px;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+}

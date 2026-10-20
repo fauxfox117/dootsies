@@ -1,6 +1,16 @@
 node_modules
 .next
+
+# OpenNext
 .open-next
 
-# Local Netlify folder
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+#netlify
 .netlify
+
+.env*
+!.env.example

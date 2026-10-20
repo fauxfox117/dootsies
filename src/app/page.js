@@ -5,13 +5,13 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Modal from "@/components/Modal/Modal";
+import Button from "@/components/Button/Button";
+import { useHiringAnnouncement } from "@/context/HiringAnnouncementContext";
+
 import Preloader, { isInitialLoad } from "@/components/Preloader/Preloader";
 import Copy from "@/components/Copy/Copy";
-import DiningMenu from "@/components/DiningMenu/DiningMenu";
-import Testimonials from "@/components/Testimonials/Testimonials";
-import CTA from "@/components/CTA/CTA";
-import ImageBanner from "@/components/ImageBanner/ImageBanner";
-import Footer from "@/components/Footer/Footer";
+import NavBar from "@/components/NavBar/NavBar";
 
 import "./home.css";
 
@@ -20,8 +20,11 @@ gsap.registerPlugin(ScrollTrigger);
 const ABOUT_IMAGE_COUNT = 6;
 
 export default function Home() {
+  const buttonText = "Careers";
+  const registerText = "Register here";
   const aboutSectionRef = useRef(null);
   const isInitialPageLoad = useRef(isInitialLoad).current;
+  const openHiringAnnouncement = useHiringAnnouncement();
   const [preloaderDelay, setPreloaderDelay] = useState(
     isInitialPageLoad ? 9999 : 0,
   );
@@ -68,6 +71,7 @@ export default function Home() {
 
   return (
     <>
+      <NavBar />
       <Preloader onEnter={handlePreloaderEnter} />
 
       <section className="hero">
@@ -77,7 +81,7 @@ export default function Home() {
 
         <div className="container">
           <Image
-            src="/Dootsies.PNG"
+            src="/Dootsies.png"
             alt="Dootsie's"
             className="hero-logo"
             width={2733}
@@ -95,9 +99,7 @@ export default function Home() {
               type="lines"
               animateOnScroll={false}
               delay={isInitialPageLoad ? preloaderDelay + 0.15 : 1.1}
-            >
-              <p className="sm">Since 2026</p>
-            </Copy>
+            ></Copy>
             <Copy
               type="lines"
               animateOnScroll={false}
