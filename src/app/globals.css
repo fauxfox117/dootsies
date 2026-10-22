@@ -44,7 +44,7 @@ h5,
 h6 {
   font-family: "Special Elite", sans-serif;
   font-weight: 900;
-  line-height: 0.85;
+  line-height: 1.15;
   text-transform: uppercase;
 }
 
@@ -184,4 +184,9 @@ a[href^="mailto"] {
     font-size: 1.5rem;
     letter-spacing: -0.045rem;
   }
+}
+
+.line-mask {
+  padding-top: 0.15em;
+  margin-top: -0.15em;
 }

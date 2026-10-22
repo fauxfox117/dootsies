@@ -14,7 +14,7 @@ const EXIT_ANIMATION_MS = 700;
 let isInitialLoad = true;
 
 export default function Preloader({
-  title = "{img: Dootsie's Logo}",
+  title = "Dootsie's",
   duration = 2600,
   buttonText = "Enter Website",
   buttonHref = "#",
@@ -101,13 +101,16 @@ export default function Preloader({
     >
       <div className="preloader-inner">
         <div className="preloader-title-wrap">
-          <h2 className="preloader-title preloader-title-base">{title}</h2>
-          <h2
-            className="preloader-title preloader-title-fill"
-            style={{ width: `${progress}%` }}
-          >
-            {title}
-          </h2>
+          <div
+            className="preloader-logo preloader-logo-base"
+            aria-label={title}
+            role="img"
+          />
+          <div
+            className="preloader-logo preloader-logo-fill"
+            style={{ clipPath: `inset(0 ${100 - progress}% 0 0)` }}
+            aria-hidden="true"
+          />
         </div>
 
         <div className="preloader-action-slot">

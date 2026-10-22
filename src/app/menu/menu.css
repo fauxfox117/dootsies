@@ -43,7 +43,7 @@
 }
 
 .menu-category-header p {
-  color: var(--base-400);
+  color: var(--base-100);
   font-weight: 400;
 }
 
@@ -63,12 +63,12 @@
   min-height: 250px;
   padding: 2rem;
   border-radius: 0.35rem;
-  background-color: var(--base-500);
+  background-color: var(--base-300);
   will-change: transform, opacity;
 }
 
 .menu-grid-card.alt {
-  background-color: var(--base-400);
+  background-color: var(--base-200);
 }
 
 .menu-grid-card-top {
@@ -81,7 +81,7 @@
 .menu-grid-card-top h6 {
   flex: 1;
   min-width: 0;
-  color: var(--base-500);
+  color: var(--base-100);
 }
 
 .menu-grid-card-top .mono {
@@ -95,7 +95,8 @@
 }
 
 .menu-grid-card p {
-  color: var(--base-200);
+  font-family: "Special Elite", sans-serif;
+  color: var(--base-100);
 }
 
 .menu-grid-card-price {

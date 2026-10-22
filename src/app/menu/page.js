@@ -64,7 +64,7 @@ export default function Menu() {
 
   return (
     <>
-      <section className="menu-hero">
+      {/* <section className="menu-hero">
         <div className="container">
           <Copy type="words" animateOnScroll={false} delay={0.85}>
             <h2>A Menu Guided by Taste and Time</h2>
@@ -79,7 +79,7 @@ export default function Menu() {
             <p className="sm">Selected Courses</p>
           </Copy>
         </div>
-      </section>
+      </section> */}
 
       <section className="menu-list" ref={menuListRef}>
         <div className="container">

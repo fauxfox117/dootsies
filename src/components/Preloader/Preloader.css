@@ -9,7 +9,7 @@
   min-height: 100vh;
   padding: 2rem;
   overflow: hidden;
-  background: var(--base-600);
+  background: var(--base-400);
   transition:
     opacity 0.7s ease,
     visibility 0.7s ease;
@@ -49,7 +49,7 @@
   left: 0;
   width: 0%;
   overflow: hidden;
-  color: var(--base-100);
+  color: var(--base-500);
   will-change: width;
 }
 
@@ -98,6 +98,25 @@
   opacity: 1;
   transform: translate(-50%, -50%);
   pointer-events: auto;
+}
+
+.preloader-logo {
+  width: min(150rem, 120vw);
+  aspect-ratio: 2733 / 1108;
+  -webkit-mask: url("/Dootsies.PNG") center / contain no-repeat;
+  mask: url("/Dootsies.PNG") center / contain no-repeat;
+}
+
+.preloader-logo-base {
+  background: rgba(224, 222, 209, 0.16);
+}
+
+.preloader-logo-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--base-500);
+  will-change: clip-path;
 }
 
 @media (max-width: 1000px) {

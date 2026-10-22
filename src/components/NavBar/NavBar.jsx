@@ -1,14 +1,39 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
+import { useViewTransition } from "@/hooks/useViewTransition";
 import "./NavBar.css";
 
+const LINKS = [
+  { label: "menu", href: "/menu" },
+  { label: "about", href: "/about" },
+  { label: "contact", href: "#" },
+  { label: "reservations", href: "/reservation" },
+  { label: "gift cards", href: "#" },
+];
+
 function NavBar() {
+  const { navigateWithTransition } = useViewTransition();
+
+  const handleClick = (event, href) => {
+    if (href.startsWith("#")) return;
+    event.preventDefault();
+    navigateWithTransition(href);
+  };
+
   return (
     <nav className="nav-bar">
-      <p className="nav-link">menu</p>
-      <p className="nav-link">about</p>
-      <p className="nav-link">contact</p>
-      <p className="nav-link">reservations</p>
-      <p className="nav-link">gift cards</p>
+      {LINKS.map(({ label, href }) => (
+        <Link
+          key={label}
+          href={href}
+          className="nav-bar-link"
+          onClick={(event) => handleClick(event, href)}
+        >
+          {label}
+        </Link>
+      ))}
     </nav>
   );
 }

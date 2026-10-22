@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { ReactLenis } from "lenis/react";
 import { ViewTransitions } from "next-view-transitions";
 
-import Nav from "@/components/Nav/Nav";
+// import Nav from "@/components/Nav/Nav";
+import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
 import HiringAnnouncement from "@/components/HiringAnnouncement/HiringAnnouncement";
 import { HiringAnnouncementContext } from "@/context/HiringAnnouncementContext";
@@ -114,19 +115,19 @@ export default function ClientLayout({ children }) {
   return (
     <ViewTransitions>
       <ReactLenis root options={lenisOptions}>
-        <HiringAnnouncementContext.Provider value={openHiringAnnouncement}>
-          <HiringAnnouncement
-            isOpen={isHiringOpen}
-            onClose={closeHiringAnnouncement}
-          />
-          {!isLandingPage && <Nav pageRef={pageWrapperRef} />}
-          <div className="page" ref={pageRef}>
-            <div className="page-wrapper" ref={pageWrapperRef}>
-              {children}
-              {!isLandingPage && <Footer />}
-            </div>
+        {/* <HiringAnnouncementContext.Provider value={openHiringAnnouncement}>
+            <HiringAnnouncement
+              isOpen={isHiringOpen}
+              onClose={closeHiringAnnouncement}
+            /> */}
+        {!isLandingPage && <NavBar />}
+        <div className="page" ref={pageRef}>
+          <div className="page-wrapper" ref={pageWrapperRef}>
+            {children}
+            {!isLandingPage && <Footer />}
           </div>
-        </HiringAnnouncementContext.Provider>
+        </div>
+        {/* </HiringAnnouncementContext.Provider> */}
       </ReactLenis>
     </ViewTransitions>
   );

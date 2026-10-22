@@ -1,8 +1,11 @@
 .nav-bar {
+  position: fixed; /* or fixed to keep it on screen while scrolling */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* padding: 1rem; */
+  justify-content: space-evenly;
+  z-index: 100;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to bottom, var(--base-400), transparent);
 }
 
 .nav-logo {
@@ -22,4 +25,17 @@
   transition:
     text-decoration 0.3s ease-in-out,
     color 0.5s ease-in-out;
+}
+
+.nav-bar-link {
+  font-family: "Special Elite";
+  margin-right: 1rem;
+  color: var(--base-200);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-bar-link:hover {
+  text-decoration: underline;
+  color: var(--base-100);
 }
