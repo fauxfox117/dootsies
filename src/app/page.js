@@ -26,7 +26,6 @@ export default function Home() {
   const registerText = "Register here";
   const aboutSectionRef = useRef(null);
   const isInitialPageLoad = useRef(isInitialLoad).current;
-  const openHiringAnnouncement = useHiringAnnouncement();
   const [preloaderDelay, setPreloaderDelay] = useState(
     isInitialPageLoad ? 9999 : 0,
   );
