@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Modal from "@/components/Modal/Modal";
 import Button from "@/components/Button/Button";
-import { useHiringAnnouncement } from "@/context/HiringAnnouncementContext";
+// import { useHiringAnnouncement } from "@/context/HiringAnnouncementContext";
 
 import Preloader, { isInitialLoad } from "@/components/Preloader/Preloader";
 import Copy from "@/components/Copy/Copy";
