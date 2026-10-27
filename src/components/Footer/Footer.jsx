@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -146,50 +146,49 @@ const Footer = () => {
     <footer className="footer" ref={sectionRef}>
       <div className="footer-content">
         <div className="footer-top">
-        <section className="footer-top-left" aria-labelledby="footer-newsletter-title">
-          <Copy
-            key={`newsletter-${pathname}`}
-            type="lines"
-            trigger=".footer-heading"
-            animateOnScroll
+          <section
+            className="footer-top-left"
+            aria-labelledby="footer-newsletter-title"
           >
-            <h3 id="footer-newsletter-title">Newsletter</h3>
-          </Copy>
-        </section>
+            <Copy
+              key={`newsletter-${pathname}`}
+              type="lines"
+              trigger=".footer-heading"
+              animateOnScroll
+            >
+              <h3 id="footer-newsletter-title">Newsletter</h3>
+            </Copy>
+          </section>
 
-        <nav
-          className="footer-top-right"
-          aria-labelledby="footer-navigation-title"
-        >
-          <Copy
-            key={`navigation-${pathname}`}
-            type="lines"
-            trigger=".footer-heading"
-            animateOnScroll
+          <nav
+            className="footer-top-right"
+            aria-labelledby="footer-navigation-title"
           >
-            <h3 id="footer-navigation-title">Navigation</h3>
-          </Copy>
-          <ul>
-            {FOOTER_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={(event) => handleFooterLinkClick(event, link.href)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+            <Copy
+              key={`navigation-${pathname}`}
+              type="lines"
+              trigger=".footer-heading"
+              animateOnScroll
+            >
+              <h3 id="footer-navigation-title">Navigation</h3>
+            </Copy>
+            <ul>
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={(event) => handleFooterLinkClick(event, link.href)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
         <div className="footer-heading">
-          <p className="footer-eyebrow">Dootsie's / Greenville, SC</p>
-          <Copy
-            key={`heading-${pathname}`}
-            type="lines"
-            animateOnScroll
-          >
+          <p className="footer-eyebrow">Dootsie&apos;s / Greenville, SC</p>
+          <Copy key={`heading-${pathname}`} type="lines" animateOnScroll>
             <h2>We Look Forward To Your Visit</h2>
           </Copy>
         </div>
