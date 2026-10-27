@@ -61,6 +61,7 @@ export default function Preloader({
 
       if (percent >= 100) {
         setHasFinishedLoading(true);
+        handleEnterClick();
         return;
       }
 
@@ -78,7 +79,7 @@ export default function Preloader({
 
   const handleEnterClick = (event) => {
     if (event) event.preventDefault();
-    if (!hasFinishedLoading || isExiting) return;
+    if (isExiting) return;
 
     if (onEnter) onEnter(event);
 

@@ -8,6 +8,7 @@
   --base-500: #e7d4c5;
   --base-600: #000;
   --base-700: #fff;
+  --brand-logo-width: min(85vw, 1200px);
 }
 
 * {

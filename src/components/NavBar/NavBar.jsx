@@ -8,6 +8,7 @@ import "./NavBar.css";
 const LINKS = [
   { label: "menu", href: "/menu" },
   { label: "about", href: "/about" },
+  // { label: "home", href: "/" },
   { label: "contact", href: "#" },
   { label: "reservations", href: "/reservation" },
   { label: "gift cards", href: "#" },

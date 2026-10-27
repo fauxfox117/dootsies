@@ -2,12 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Button from "@/components/Button/Button";
 import Copy from "@/components/Copy/Copy";
+import { useViewTransition } from "@/hooks/useViewTransition";
 
 import "./Footer.css";
 
@@ -23,11 +25,34 @@ const POSTCARDS = [
   { image: "/footer/footer-img-5.jpg", rotation: -12, x: "-10%" },
 ];
 
+const FOOTER_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Menu", href: "/menu" },
+  { label: "About", href: "/about" },
+  { label: "Reservations", href: "/reservation" },
+];
+
 const Footer = () => {
   const pathname = usePathname();
+  const { navigateWithTransition } = useViewTransition();
   const sectionRef = useRef(null);
   const visitButtonRef = useRef(null);
   const visitButtonContainerRef = useRef(null);
+
+  const handleFooterLinkClick = (event, href) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    navigateWithTransition(href);
+  };
 
   /* button scroll-triggered entrance, re-runs on route change */
   useEffect(() => {
@@ -120,8 +145,51 @@ const Footer = () => {
   return (
     <footer className="footer" ref={sectionRef}>
       <div className="footer-content">
+        <div className="footer-top">
+        <section className="footer-top-left" aria-labelledby="footer-newsletter-title">
+          <Copy
+            key={`newsletter-${pathname}`}
+            type="lines"
+            trigger=".footer-heading"
+            animateOnScroll
+          >
+            <h3 id="footer-newsletter-title">Newsletter</h3>
+          </Copy>
+        </section>
+
+        <nav
+          className="footer-top-right"
+          aria-labelledby="footer-navigation-title"
+        >
+          <Copy
+            key={`navigation-${pathname}`}
+            type="lines"
+            trigger=".footer-heading"
+            animateOnScroll
+          >
+            <h3 id="footer-navigation-title">Navigation</h3>
+          </Copy>
+          <ul>
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={(event) => handleFooterLinkClick(event, link.href)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
         <div className="footer-heading">
-          <Copy key={`heading-${pathname}`} type="lines" animateOnScroll>
+          <p className="footer-eyebrow">Dootsie's / Greenville, SC</p>
+          <Copy
+            key={`heading-${pathname}`}
+            type="lines"
+            animateOnScroll
+          >
             <h2>We Look Forward To Your Visit</h2>
           </Copy>
         </div>
@@ -138,7 +206,7 @@ const Footer = () => {
           <div className="footer-postcard" key={index}>
             <Image
               src={card.image}
-              alt="Dootsie's"
+              alt=""
               fill
               sizes="(max-width: 1000px) 360px, 40vw"
             />

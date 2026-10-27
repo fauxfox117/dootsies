@@ -22,6 +22,8 @@
 }
 
 .preloader-inner {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,8 +31,10 @@
 }
 
 .preloader-title-wrap {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .preloader-title {
@@ -54,9 +58,12 @@
 }
 
 .preloader-action-slot {
-  position: relative;
+  position: absolute;
+  top: calc(50% + min(17.25vw, 243px) + 2rem);
+  left: 50%;
   min-width: 16rem;
   height: 3.75rem;
+  transform: translateX(-50%);
 }
 
 .preloader-loading {
@@ -101,7 +108,7 @@
 }
 
 .preloader-logo {
-  width: min(150rem, 120vw);
+  width: var(--brand-logo-width);
   aspect-ratio: 2733 / 1108;
   -webkit-mask: url("/Dootsies.PNG") center / contain no-repeat;
   mask: url("/Dootsies.PNG") center / contain no-repeat;

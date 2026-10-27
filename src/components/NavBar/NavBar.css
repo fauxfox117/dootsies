@@ -6,6 +6,7 @@
   width: 100%;
   padding: 1rem;
   background: linear-gradient(to bottom, var(--base-400), transparent);
+  view-transition-name: nav-bar
 }
 
 .nav-logo {

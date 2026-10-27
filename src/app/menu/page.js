@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -33,26 +34,28 @@ function flattenCategoryItems(category) {
 export default function Menu() {
   const menuListRef = useRef(null);
 
-  /* stagger-reveal menu cards as each grid enters the viewport */
+  /* reveal menu rows as each category enters the viewport */
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray(".menu-grid").forEach((grid) => {
-        const cards = grid.querySelectorAll(".menu-grid-card");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-        gsap.set(cards, { opacity: 0, y: 30, scale: 0.75 });
+      gsap.utils.toArray(".menu-category").forEach((category) => {
+        const rows = category.querySelectorAll(".menu-row");
+
+        gsap.set(rows, { autoAlpha: 0, y: 18 });
 
         ScrollTrigger.create({
-          trigger: grid,
-          start: "top 70%",
+          trigger: category,
+          start: "top 75%",
           once: true,
           onEnter: () => {
-            gsap.to(cards, {
-              opacity: 1,
+            gsap.to(rows, {
+              autoAlpha: 1,
               y: 0,
-              scale: 1,
-              duration: 0.6,
+              duration: 0.55,
               ease: "power2.out",
-              stagger: 0.08,
+              stagger: 0.045,
+              clearProps: "transform",
             });
           },
         });
@@ -64,35 +67,69 @@ export default function Menu() {
 
   return (
     <>
-      {/* <section className="menu-hero">
-        <div className="container">
-          <Copy type="words" animateOnScroll={false} delay={0.85}>
-            <h2>A Menu Guided by Taste and Time</h2>
-          </Copy>
-        </div>
+      <section className="menu-hero" aria-labelledby="menu-title">
+        <div className="menu-hero-inner">
+          <div className="menu-hero-copy">
+            <p className="menu-eyebrow">Dootsie's / Greenville, SC</p>
+            <Copy type="words" animateOnScroll={false} delay={0.2}>
+              <h1 id="menu-title">A Menu Guided by Taste and Time</h1>
+            </Copy>
+            <p className="menu-hero-note">
+              Start with something to share. Stay for one more course.
+            </p>
+          </div>
 
-        <div className="section-footer">
-          <Copy type="lines" animateOnScroll={false} delay={1.1}>
-            <p className="sm">The Carte</p>
-          </Copy>
-          <Copy type="lines" animateOnScroll={false} delay={1.2}>
-            <p className="sm">Selected Courses</p>
-          </Copy>
+          <div className="menu-hero-image">
+            <Image
+              src="/menu/menu-carte.jpg"
+              alt="A plated dish from the Dootsie's menu"
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 48vw"
+            />
+          </div>
         </div>
-      </section> */}
+      </section>
 
-      <section className="menu-list" ref={menuListRef}>
-        <div className="container">
-          {diningMenu.map((category, categoryIndex) => {
-            const items = flattenCategoryItems(category);
-            const tagline = CATEGORY_TAGLINES[category.category];
+      <nav className="menu-category-nav" aria-label="Menu categories">
+        <div className="menu-category-nav-inner">
+          {diningMenu.map((category) => {
+            const categoryId = category.category
+              .toLowerCase()
+              .replaceAll(" ", "-");
 
             return (
-              <div className="menu-category" key={categoryIndex}>
+              <a key={categoryId} href={`#${categoryId}`}>
+                {category.category}
+              </a>
+            );
+          })}
+        </div>
+      </nav>
+
+      <main className="menu-list" ref={menuListRef}>
+        <div className="container">
+          {diningMenu.map((category) => {
+            const items = flattenCategoryItems(category);
+            const tagline = CATEGORY_TAGLINES[category.category];
+            const categoryId = category.category
+              .toLowerCase()
+              .replaceAll(" ", "-");
+
+            return (
+              <section
+                className="menu-category"
+                id={categoryId}
+                key={categoryId}
+                aria-labelledby={`${categoryId}-title`}
+              >
                 <div className="menu-category-header">
-                  <Copy type="words" animateOnScroll>
-                    <h3>{category.category}</h3>
-                  </Copy>
+                  <div className="menu-category-title">
+                    <p className="menu-eyebrow">The menu</p>
+                    <Copy type="words" animateOnScroll>
+                      <h2 id={`${categoryId}-title`}>{category.category}</h2>
+                    </Copy>
+                  </div>
                   {tagline && (
                     <Copy type="lines" animateOnScroll>
                       <p className="md">{tagline}</p>
@@ -100,30 +137,44 @@ export default function Menu() {
                   )}
                 </div>
 
-                <div className="menu-grid">
-                  {items.map((item, itemIndex) => (
-                    <div
-                      className={`menu-grid-card ${itemIndex % 2 !== 0 ? "alt" : ""}`}
-                      key={itemIndex}
-                    >
-                      <div className="menu-grid-card-top">
-                        <h6>{item.name}</h6>
-                        {item.weight && <p className="mono">{item.weight}</p>}
+                <div className="menu-rows">
+                  {items.map((item, itemIndex) => {
+                    const isNewGroup =
+                      item.group && item.group !== items[itemIndex - 1]?.group;
+
+                    return (
+                      <div
+                        className="menu-row-wrap"
+                        key={`${item.group || categoryId}-${itemIndex}`}
+                      >
+                        {isNewGroup && (
+                          <h3 className="menu-group-heading">{item.group}</h3>
+                        )}
+                        <article className="menu-row">
+                          <div className="menu-row-copy">
+                            <h3>{item.name}</h3>
+                            {(item.description || item.size) && (
+                              <p>{item.description || item.size}</p>
+                            )}
+                          </div>
+                          <div className="menu-row-meta">
+                            {item.weight && (
+                              <p className="mono">{item.weight}</p>
+                            )}
+                            {item.price && (
+                              <p className="menu-row-price">{item.price}</p>
+                            )}
+                          </div>
+                        </article>
                       </div>
-
-                      {(item.description || item.size) && (
-                        <p>{item.description || item.size}</p>
-                      )}
-
-                      <p className="menu-grid-card-price">{item.price}</p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
-              </div>
+              </section>
             );
           })}
         </div>
-      </section>
+      </main>
 
       <Testimonials />
     </>

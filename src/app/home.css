@@ -76,8 +76,8 @@
 }
 
 .hero-logo {
-  width: 160rem;
-  max-width: 85%;
+  width: var(--brand-logo-width);
+  max-width: 100%;
   height: auto;
 }
 
