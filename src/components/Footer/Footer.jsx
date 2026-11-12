@@ -185,6 +185,7 @@ const Footer = () => {
               ))}
             </ul>
           </nav>
+          <button className="footer-social-icon"></button>
         </div>
         <div className="footer-heading">
           <p className="footer-eyebrow">Dootsie&apos;s / Greenville, SC</p>

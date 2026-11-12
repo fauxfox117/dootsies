@@ -1,44 +1,4 @@
 export const diningMenu = [
-  // {
-  //   category: "Breakfast",
-  //   items: [
-  //     {
-  //       name: "Bread with Egg",
-  //       weight: "250 g",
-  //       price: "$6.50",
-  //       description:
-  //         "Sourdough bread, soft-boiled eggs (x2), whipped butter, cottage cheese, radish, chives",
-  //     },
-  //     {
-  //       name: "Eggs Benedict",
-  //       weight: "370 g",
-  //       price: "$7.50",
-  //       description:
-  //         "Sourdough toast, poached eggs (x2), hollandaise sauce, basil pesto, grilled broad beans",
-  //     },
-  //     {
-  //       name: "Omelet with Zucchini and Feta",
-  //       weight: "350 g",
-  //       price: "$7.00",
-  //       description:
-  //         "Omelet, grilled zucchini, raspberry tomato, feta, olive oil, sourdough wheat bread",
-  //     },
-  //     {
-  //       name: "Bread with Burrata and Pesto",
-  //       weight: "400 g",
-  //       price: "$7.50",
-  //       description:
-  //         "Sourdough wheat bread, burrata, basil pesto, raspberry tomato, pistachios",
-  //     },
-  //     {
-  //       name: "Toast with Broad Bean Paste",
-  //       weight: "320 g",
-  //       price: "$6.50",
-  //       description:
-  //         "Milk toast, broad bean & feta paste, broad beans, pickled beets, pistachios",
-  //     },
-  //   ],
-  // },
 
   {
     // Hors d'oeuvres

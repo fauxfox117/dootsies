@@ -1,12 +1,62 @@
 .nav-bar {
-  position: fixed; /* or fixed to keep it on screen while scrolling */
+  position: fixed;
+  left: 0;
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
   z-index: 100;
   width: 100%;
   padding: 1rem;
+  padding-top: 20px;
   background: linear-gradient(to bottom, var(--base-400), transparent);
-  view-transition-name: nav-bar
+  view-transition-name: nav-bar;
+}
+
+.nav-bar-menu {
+  display: flex;
+  flex: 1;
+}
+
+.nav-bar-links {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-bar-dropdown {
+  position: relative;
+}
+
+.nav-bar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  display: none;
+  padding-top: 0.75rem;
+  transform: translateX(-50%);
+}
+
+.nav-bar-dropdown:hover .nav-bar-dropdown-menu,
+.nav-bar-dropdown:focus-within .nav-bar-dropdown-menu {
+  display: flex;
+}
+
+.nav-bar-logo {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  width: clamp(10rem, 20vw, 20rem);
+  transform: translateX(-50%);
+}
+
+.nav-bar-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nav-bar-toggle {
+  display: none;
 }
 
 .nav-logo {
@@ -39,4 +89,87 @@
 .nav-bar-link:hover {
   text-decoration: underline;
   color: var(--base-100);
+}
+
+@media (max-width: 700px) {
+  .nav-bar {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav-bar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    background: var(--base-300);
+  }
+
+  .nav-bar-menu.is-open {
+    display: flex;
+  }
+
+  .nav-bar-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-bar-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .nav-bar-dropdown-menu {
+    position: static;
+    display: flex;
+    padding-top: 0;
+    transform: none;
+  }
+
+  .nav-bar-link {
+    margin-right: 0;
+  }
+
+  .nav-bar-logo {
+    width: clamp(10rem, 12vw, 10rem);
+  }
+
+  .nav-bar-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 2rem;
+    padding: 0.25rem 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-bar-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--base-200);
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .nav-bar-toggle.is-open span:nth-child(1) {
+    transform: translateY(0.4rem) rotate(45deg);
+  }
+
+  .nav-bar-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-bar-toggle.is-open span:nth-child(3) {
+    transform: translateY(-0.4rem) rotate(-45deg);
+  }
 }
